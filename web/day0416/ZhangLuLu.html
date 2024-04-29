@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是18岁美少女</title>
+    <script>
+        while (true){
+            zhanglulu();
+            var s = prompt("要继续猜吗？(y或者n)");
+            if (s == "y"){
+                test();
+                var str1 = prompt("要继续猜吗？(y或者n)");
+            }
+            if (s == "n"){
+                alert("不猜就对了");
+                break;
+            }
+        }
+
+        function zhanglulu() {
+            var lulu = Math.round(100+Math.random()*900);
+            while (true){
+                var lulu1 = prompt("输入你认为对的数字：");
+                if (lulu1 == lulu){
+                    alert("病狗，你猜对了");
+                    break;
+                }
+                if (lulu1 > lulu){
+                    alert("输入的数字大了");
+                }
+                if (lulu1 < lulu){
+                    alert("输入的数字小了");
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

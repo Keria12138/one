@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //通过Object创建对象
+        var student = new Object();
+        student.name = "鑫哥";
+        student.age = 21;
+        student.sex = "男";
+        student.show = function () {
+        alert(this.name+this.age+this.sex+"上厕所");
+        }
+        student.show();
+        //window.open 打开一个新窗口访问指定地址
+        window.open("http://www.shuangtixi.com");
+        //当前窗口访问指定地址
+        window.location.href = "http://www.shuangtixi.com";
+
+        // window.close("http://www.shuangtixi.com");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

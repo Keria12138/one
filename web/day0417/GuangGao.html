@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广告</title>
+    <script>
+        function move() {
+            document.getElementById("layer1").style.left= Math.random()*500+"px";
+            document.getElementById("layer1").style.top= Math.random()*500+"px";
+            setTimeout("move()",2000);
+        }
+    </script>
+
+</head>
+<body>
+    <div id="layer1" style="position:absolute;">
+        <a href="http://www.shuangtixi.com">
+            <img src="/images/KDA.jpg" width="150" height="100" border="0">
+        </a>
+    </div>
+    <h2>我是一个安全的小广告</h2>
+
+</body>
+</html>

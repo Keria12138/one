@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wonderful_JDH</title>
+    <script>
+        while (true){
+            test();
+            var str1 = prompt("你还想继续猜么(输入Y或者N)？");
+            if (str1 == "Y"){
+                test();
+                var str1 = prompt("你还想继续猜么(输入Y或者N)？");
+            }
+            if (str1 == "N"){
+                alert("居然不猜了，废了，你大抵是废了，我这边建议你直接重开");
+                break;
+            }
+        }
+
+        function test() {
+            //随机生成100-1000之间的数
+            var num1 = Math.round(100+Math.random()*900);
+            while (true){
+                //接收用户输入的内容
+                var num2 = prompt("请输入你认为系统生成的数字：");
+                if (num2 == num1){
+                    alert("你真是天才，这都被你猜对了");
+                    break;
+                }
+                if (num2 > num1){
+                    alert("你输入的数字太大了，变小一点也许就成功了");
+                }
+                if (num2 < num1){
+                    alert("你输入的数字太小了，变大一点也许就成功了");
+                }
+            }
+        }
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

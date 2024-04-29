@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高翊浚的CS:GO</title>
+    <script>
+        function gaoyujun() {
+            var number = Math.round(100+Math.random()*900);
+            while (true){
+                var receive_number = prompt("输入数字：");
+                if (receive_number == number){
+                    alert("回答正确");
+                    break;
+                }
+                if (receive_number > number){
+                    alert("输入的数字太大了");
+                }
+                if (receive_number < number){
+                    alert("输入的数字太小了");
+                }
+            }
+        }
+
+        while (true){
+            gaoyujun();
+            var str = prompt("还想继续猜?(大写的Y或者N)");
+            if (str == "Y"){
+                test();
+                var str = prompt("还想继续猜?(大写的Y或者N)");
+            }
+            if (str == "N"){
+                alert("算你识相，滚犊子吧");
+                break;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

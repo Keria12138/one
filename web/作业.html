@@ -1,0 +1,66 @@
+<!-- 作业 2选一，可以两个都做：
+1、表单校验，提交的时候，所有内容必填、密码需要复杂度（至少3种、长度8-20位）
+2、制作计算器实现 内容加减乘除，显示结果 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单校验</title>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+
+            // 检查用户名、密码、邮箱和性别是否为空
+            if (username == "" || password == "" || email == "" || gender == null) {
+                alert("所选项不能为空");
+                return false;
+            }
+
+            // 检查密码复杂度
+            if (!checkPasswordComplexity(password)) {
+                alert("密码必须包含至少3种字符类型（大写字母、小写字母、数字、特殊字符），长度在8-20位之间！");
+                return false;
+            }
+
+            return true;
+        }
+
+        function checkPasswordComplexity(password) {
+            // 密码长度必须在8-20位之间
+            if (password.length < 8 || password.length > 20) {
+                return false;
+            }
+
+            // 密码必须包含至少3种字符类型（大写字母、小写字母、数字、特殊字符）
+            var complexityRegex =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
+            return complexityRegex.test(password);
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="gender">性别:</label><br>
+        <label>
+            <input type="radio" name="gender" value="male" required> 男
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="female" required> 女
+        </label><br><br>
+
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

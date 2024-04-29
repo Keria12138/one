@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习使我快乐</title>
+</head>
+<body>
+<div id="layer1" style="position:absolute;">
+    <a href="https://www.bilibili.com/">
+        <img id="changing-image" src="Java.png" width="180" height="260" border="0">
+    </a>
+</div>
+<h2>“真正的大师，永远都怀着一颗学徒的心”</h2>
+</body>
+<script>
+    var X = 1;
+    var y = 1;
+    var m = true;
+    var currentImageIndex = 0; // 当前图片索引
+    var imageArray = [
+        "Java.png",
+        "Java1.jpg", // 替换为您的其他图片路径
+    ];
+    function changeImage() {//插入图片数组并且轮播不会ai代谢的
+        currentImageIndex = (currentImageIndex + 1) % imageArray.length; // 循环取模确保索引在有效范围内
+        var newImageSrc = imageArray[currentImageIndex];
+        document.getElementById("changing-image").src = newImageSrc;
+    }
+    function move() {
+        if (m) {
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var layer1 = document.getElementById("layer1");
+            var offsetLeft = layer1.offsetLeft;
+            var offsetTop = layer1.offsetTop;
+            var offsetHeight = layer1.offsetHeight;
+
+            if (offsetLeft == width - offsetHeight - 20) {
+                X = -1;
+            } else if (offsetLeft <= 0) {
+                X = 1;
+            }
+            layer1.style.left = (offsetLeft + X) + "px";
+
+            if (offsetTop >= height - offsetHeight) {
+                y = -1;
+            } else if (offsetTop <= 0) {
+                y = 1;
+            }
+            layer1.style.top = (offsetTop + y) + "px";
+
+            console.log(layer1.offsetLeft);
+            console.log(layer1.offsetTop);
+        }
+    }
+    document.getElementById("layer1").addEventListener('mouseenter', function() {
+        m = false;
+    });
+
+    document.getElementById("layer1").addEventListener('mouseleave', function() {
+        m = true;
+    });
+    setInterval(move, 10);
+    setInterval(changeImage,3000);
+</script>
+</html>
